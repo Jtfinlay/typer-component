@@ -1,0 +1,22 @@
+.letter {
+    border-radius: 5px;
+    padding: 2px;
+    margin: 4px 1px;
+    min-width: 21px;
+    text-align: center;
+
+    &.is-active {
+        background: #3295db;
+        color: #fff;
+    }
+    
+    &.is-right {
+        background: #dbeecf;
+        color: #71b16b;
+    }
+
+    &.is-wrong {
+        background: #ce3e44;
+        color: #fff;
+    }
+}
