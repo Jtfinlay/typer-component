@@ -5,6 +5,20 @@ import './board.css';
 
 class Board extends Component {
 
+    constructor(props) {
+        super(props);
+
+        this.bound_onKeyDown = this.handleKeyboardEvent.bind(this);
+    }
+
+    componentDidMount() {
+        window.addEventListener('keydown', this.bound_onKeyDown);
+    }
+
+    componentWillUnmount() {
+        window.removeEventListener('keydown', this.bound_onKeyDown);
+    }
+
     render() {
         const chars = [
             { id: '0', text: 'h', status: 'right' },
@@ -25,6 +39,12 @@ class Board extends Component {
                 )}
             </div>
         );
+    }
+
+    handleKeyboardEvent(event) {
+        if (event.key.length === 1 && /^[a-zA-Z]*$/.test(event.key)) {
+            this.props.keyPressed(event.key);
+        }
     }
 }
 
