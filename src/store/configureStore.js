@@ -1,5 +1,6 @@
 import { createStore, applyMiddleware } from 'redux';
 import logger from 'redux-logger';
+import rootReducer from '../reducers';
 
 let middlewares = [];
 
@@ -15,7 +16,7 @@ const createStoreWithMiddlewares = applyMiddleware(
 
 export default function configureStore(initialState) {
     return createStoreWithMiddlewares(
-        a => a, 
+        rootReducer,
         initialState,
         (!isProd && window.devToolsExtension) ? window.devToolsExtension() : f => f
     );

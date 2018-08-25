@@ -7,8 +7,7 @@ const Letter = ( { text, status } ) => (
     <div className={ classNames({
         letter: true,
         'is-right': status === 'right',
-        'is-wrong': status === 'wrong',
-        'is-active': status === 'active'
+        'is-wrong': status === 'wrong'
     }) }>
         { text }
     </div>
